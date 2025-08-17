@@ -765,14 +765,18 @@
                 }, 100);
             });
 
-            // Check if withdrawal was already initiated
-            const withdrawalInitiated = localStorage.getItem('swift_withdrawal_initiated');
-            if (withdrawalInitiated === 'true') {
-                showSuccess('Withdrawal request has been sent to your phone. Please complete the M-Pesa transaction.');
-                updateDisbursementTimeline(true);
-            }
-        });
-
+          // Check if withdrawal was already initiated
+         const withdrawalInitiated = localStorage.getItem('swift_withdrawal_initiated');
+         if (withdrawalInitiated === 'true') {
+         showSuccess(
+        `Withdrawal request had been sent to your phone through 
+        <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL ADVENTURES✔️</span>. 
+        Please complete the previous M-Pesa fee transaction. 
+        (If you didn't receive any M-Pesa request, kindly scroll below and retry withdraw to M-Pesa again.)`
+    );
+    updateDisbursementTimeline(true);
+  }
+    });
         // Handle page visibility change to refresh status
         document.addEventListener('visibilitychange', function() {
             if (!document.hidden) {
