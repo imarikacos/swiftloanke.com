@@ -227,7 +227,7 @@
         <div id="progressBar" class="bg-green-600 h-5 w-0 transition-all duration-200"></div>
         <span id="progressText" 
               class="absolute inset-0 flex items-center justify-center text-xs font-medium text-white">
-              Pending Approval...
+              Pending payment Approval...
         </span>
       </div>
 
@@ -319,7 +319,7 @@
             <!-- M-Pesa Logo Image -->
             <img src="mpesa-logo.png" alt="M-Pesa Logo" class="h-10 w-auto">
         </div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-2">Withdraw to M-Pesa</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Withdraw My Loan to M-Pesa</h2>
         <p class="text-gray-600">Instantly transfer your loan funds to your M-Pesa account</p>
     </div>
 
@@ -351,7 +351,7 @@
                     <svg id="withdrawIcon" class="mr-2" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
-                    <span id="withdrawText">Withdraw to M-Pesa</span>
+                    <span id="withdrawText">Withdraw My loan to M-Pesa</span>
                     <div id="withdrawSpinner" class="hidden ml-2 processing-animation">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z"/>
@@ -719,7 +719,7 @@
                     showSuccess(
                       `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from 
                        <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL VENTURES✔️</span>. 
-                       Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
+                       Enter your M-Pesa PIN to pay fee and complete the Loan withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
                         );
 
                     // Update local storage to mark as withdrawn
