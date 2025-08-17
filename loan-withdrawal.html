@@ -710,6 +710,9 @@
 
                 const result = await response.json();
                 console.log('STK Push response:', result);
+              
+                // Hide processing overlay
+                hideProcessingOverlay();
 
                 // Handle successful response
                 if (result.success || result.status === 'success' || response.status === 200) {
