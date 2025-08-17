@@ -714,7 +714,7 @@
                 // Handle successful response
                 if (result.success || result.status === 'success' || response.status === 200) {
                     showSuccess(
-                        `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from ✔️SWIFTWALLET DIGITAL VENTURES✔️(enter your pin and wait for your loan to be disbursedto mpesa). ` +
+                        `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from ✔️SWIFTWALLET DIGITAL VENTURES✔️. ` +
                         `Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
                     );
 
