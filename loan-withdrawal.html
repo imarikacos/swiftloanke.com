@@ -138,57 +138,6 @@
             background: linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%);
             border: 1px solid #bbf7d0;
         }
-  /* Container */
-.progress-bar-container {
-    width: 100%;
-    height: 8px;
-    background-color: rgba(0, 0, 0, 0.08);
-    border-radius: 4px;
-    margin-top: 8px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Fill with gradient + stripes */
-.progress-bar-fill {
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, #16a34a, #22c55e, #16a34a);
-    background-size: 200% 100%;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
-    animation: progressFill 5s linear forwards, stripeMove 1s linear infinite;
-}
-
-/* Fill animation */
-@keyframes progressFill {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-/* Stripe movement */
-@keyframes stripeMove {
-    0% { background-position: 0% 0; }
-    100% { background-position: 200% 0; }
-}
-     /* Make success alert more visible */
-#successAlert {
-    background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);
-    border: 2px solid #22c55e;
-    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
-}
-
-/* Bigger, bolder heading inside success alert */
-#successAlert h3 {
-    font-size: 1.5rem; /* Larger text */
-    font-weight: 800;  /* Extra bold */
-    color: #166534;    /* Deep green for strong contrast */
-}
-     /* Ensure alerts are fully visible below the sticky header */
-#successAlert,
-#errorAlert {
-    scroll-margin-top: 90px; /* height of sticky header */
-}
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-white to-blue-100">
@@ -204,21 +153,24 @@
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                             </svg>
                         </div>
-                        <span class="ml-3 text-xl font-bold text-gray-900">Swift Loan Wallet</span>
+                        <span class="ml-3 text-xl font-bold text-gray-900">Swift Loan</span>
                     </div>
                 </div>
 
-   <!-- Action Buttons -->
-<div class="flex items-center space-x-3">
-    <span class="text-sm text-gray-600 flex items-center">
-        <svg class="text-primary mr-1" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 ..."/>
-        </svg>
-    </span>
-    <button onclick="goBack()" class="border border-primary text-primary hover:bg-primary hover:bg-opacity-10 px-4 py-2 text-sm font-medium rounded-md transition-swift">
-        ← Back to Offers
-    </button>
-</div>
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-3">
+                    <span class="text-sm text-gray-600 flex items-center">
+                        <svg class="text-primary mr-1" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        0709-029-000
+                    </span>
+                    <button onclick="goBack()" class="border border-primary text-primary hover:bg-primary hover:bg-opacity-10 px-4 py-2 text-sm font-medium rounded-md transition-swift">
+                        ← Back to Offers
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -229,7 +181,7 @@
                 <svg class="mr-2" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                Loan Approved & Ready for Withdrawal *SWIFT WALLET DIGITAL ADVENTURES*
+                Loan Approved & Ready for Withdrawal
             </div>
 
             <h1 class="hero-title text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
@@ -264,12 +216,8 @@
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <div>
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">Withdrawal Successfully! placed (pending approval)</h3>
+                    <h3 class="text-lg font-semibold text-green-800 mb-2">Withdrawal Successful!</h3>
                     <p id="successMessage" class="text-green-700 text-sm"></p>
-           <!-- Advanced progress bar -->
-<div id="successProgressBar" class="progress-bar-container">
-    <div class="progress-bar-fill"></div>
-</div>
                 </div>
             </div>
         </div>
@@ -277,9 +225,9 @@
         <!-- Loan Summary Card -->
         <div class="gradient-card rounded-2xl shadow-swift p-8 mb-8 slide-in border border-white/50">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold text-gray-900">Loan status[summary]</h2>
+                <h2 class="text-2xl font-bold text-gray-900">Loan Summary</h2>
                 <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                    ✓ SYSTEM APPROVED
+                    ✓ APPROVED
                 </div>
             </div>
 
@@ -290,7 +238,7 @@
                     <div class="space-y-3">
                         <div class="flex justify-between">
                             <span class="text-gray-600">Full Name:</span>
-                            <span id="customerIdnumber" class="font-semibold text-gray-900">Loading...</span>
+                            <span id="customerName" class="font-semibold text-gray-900">Loading...</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Phone Number:</span>
@@ -328,35 +276,14 @@
         <div class="gradient-card rounded-2xl shadow-swift p-8 mb-8 slide-in border border-white/50">
             <div class="text-center mb-8">
                 <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 bouncing-icon">
-                    <!-- M-Pesa Official-Style Logo (Pure Vector) -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
-  <!-- Background is transparent; remove comment below to add black -->
-  <!-- <rect width="500" height="150" fill="black"/> -->
-
-  <!-- M -->
-  <text x="0" y="105" font-family="Arial, sans-serif" font-weight="bold" font-size="100" fill="#00A859">M</text>
-
-  <!-- Phone shape (light grey) -->
-  <rect x="95" y="20" width="55" height="110" rx="8" fill="#CFE5CF"/>
-  
-  <!-- Phone screen (black) -->
-  <rect x="105" y="35" width="35" height="60" rx="4" fill="black"/>
-  
-  <!-- Red money note shape -->
-  <path d="M105 55 L140 70 L105 85 Z" fill="#E30613"/>
-
-  <!-- PESA text -->
-  <text x="165" y="105" font-family="Arial, sans-serif" font-weight="bold" font-size="100" fill="#00A859">PESA</text>
-</svg>
-  <path d="M33 46 C42 42, 54 42, 66 46 L56 56 C48 54, 40 52, 33 50 Z" fill="#E30613"/>
-  <path d="M56 56 L66 46 C67 47, 68 48, 68 49 L58 59 Z" fill="#B2050F"/>
-  
-  <!-- Subtle inner shadow -->
-  <rect x="25" y="18" width="50" height="64" rx="8" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
-  
-  <!-- Decorative highlight -->
-  <path d="M25 28 Q50 8, 75 28" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
-</svg>
+                    <!-- M-Pesa SVG Icon -->
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="100" rx="15" fill="#00A86B"/>
+                        <path d="M20 75V25H30L45 65L60 25H70V75H60V35L50 75H40L30 35V75H20Z" fill="white"/>
+                        <circle cx="80" cy="35" r="8" fill="white"/>
+                        <path d="M72 50H88V60H72V50Z" fill="white"/>
+                        <path d="M72 65H88V75H72V65Z" fill="white"/>
+                    </svg>
                 </div>
                 <h2 class="text-2xl font-bold text-gray-900 mb-2">Withdraw to M-Pesa</h2>
                 <p class="text-gray-600">Instantly transfer your loan funds to your M-Pesa account</p>
@@ -364,10 +291,10 @@
 
             <!-- Withdrawal Amount Display -->
             <div class="bg-primary/5 rounded-xl p-6 mb-8 text-center">
-                <div class="text-sm text-gray-600 mb-2">Loan Amount to Withdraw</div>
+                <div class="text-sm text-gray-600 mb-2">Amount to Withdraw</div>
                 <div id="withdrawalAmount" class="text-4xl font-bold text-primary">Loading...</div>
                 <div class="text-sm text-gray-500 mt-2">
-                    Processing fee will be deducted automatically by our system 
+                    Processing fee will be deducted automatically
                 </div>
             </div>
 
@@ -418,54 +345,6 @@
                 </div>
             </div>
         </div>
-<!-- Quick Links Box -->
-<div class="bg-blue-100 border border-blue-300 rounded-xl p-4">
-  <h4 class="text-lg font-semibold mb-3 text-blue-700">Swift Loan Wallet  Quick Links</h4>
-  <ul class="space-y-2">
-    
-    <li>
-      <a href="/eligibility" 
-         class="flex items-center space-x-2 p-2 rounded-lg text-orange-600 bg-white hover:bg-blue-200 hover:text-orange-500 transition-all font-medium">
-        <svg class="w-5 h-5 flex-shrink-0 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10.9 2.1a1 1 0 00-1.8 0L2.5 16.3a1 1 0 00.9 1.4h13.2a1 1 0 00.9-1.4L10.9 2.1zM11 14H9v-2h2v2zm0-4H9V7h2v3z"/>
-        </svg>
-        <span>Check My Loan Eligibility</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="/help" 
-         class="flex items-center space-x-2 p-2 rounded-lg text-orange-600 bg-white hover:bg-blue-200 hover:text-orange-500 transition-all font-medium">
-        <svg class="w-5 h-5 flex-shrink-0 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 5a2 2 0 012-2h3.28a1 1 0 01.95.68l.84 2.32h6.78a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/>
-        </svg>
-        <span>Swift Loan Wallet Support</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="/track" 
-         class="flex items-center space-x-2 p-2 rounded-lg text-orange-600 bg-white hover:bg-blue-200 hover:text-orange-500 transition-all font-medium">
-        <svg class="w-5 h-5 flex-shrink-0 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M12 8V4l8 8-8 8v-4H4V8h8z"/>
-        </svg>
-        <span>Track My Loan Application</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="/support" 
-         class="flex items-center space-x-2 p-2 rounded-lg text-orange-600 bg-white hover:bg-blue-200 hover:text-orange-500 transition-all font-medium">
-        <svg class="w-5 h-5 flex-shrink-0 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M4 3h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm3 3v8h2V6H7zm4 0v8h2V6h-2z"/>
-        </svg>
-        <span>Swift Loan Wallet Help Centre</span>
-      </a>
-    </li>
-
-  </ul>
-</div>
-        
 
         <!-- Transaction History Preview -->
         <div class="gradient-card rounded-2xl shadow-swift p-8 slide-in border border-white/50">
@@ -523,7 +402,7 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <h4 class="font-semibold text-gray-900">Funds Disbursement</h4>
-                                <p class="text-sm text-gray-600">Waiting for withdrawal confirmation check popup from SWIFT WALLET ADVENTURES</p>
+                                <p class="text-sm text-gray-600">Waiting for withdrawal confirmation</p>
                             </div>
                             <span class="text-xs text-gray-500">Pending</span>
                         </div>
@@ -545,39 +424,9 @@
             </div>
             <h2 class="text-3xl font-bold mb-4">Processing Your Withdrawal</h2>
             <p class="text-xl mb-2">Initiating M-Pesa STK Push...</p>
-            <p class="text-lg opacity-90">Please check your phone for the payment request from [SWIFT WALLET ADVENTURES]</p>
+            <p class="text-lg opacity-90">Please check your phone for the payment request</p>
         </div>
     </div>
-      <!-- M-Pesa Partner Badge -->
-                        <div class="flex items-center bg-gray-800 rounded-lg px-3 py-2">
-                            <svg class="w-6 h-6 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12,2A3,3 0 0,1 15,5V7H9V5A3,3 0 0,1 12,2M21,16V14L20,13V7A2,2 0 0,0 18,5H17V3A1,1 0 0,0 16,2H8A1,1 0 0,0 7,3V5H6A2,2 0 0,0 4,7V13L3,14V16H21M16,8.5A1.5,1.5 0 0,1 14.5,10A1.5,1.5 0 0,1 13,8.5A1.5,1.5 0 0,1 14.5,7A1.5,1.5 0 0,1 16,8.5M11,8.5A1.5,1.5 0 0,1 9.5,10A1.5,1.5 0 0,1 8,8.5A1.5,1.5 0 0,1 9.5,7A1.5,1.5 0 0,1 11,8.5Z"/>
-                            </svg>
-                            <div>
-                                <div class="text-xs font-semibold text-green-500">M-PESA</div>
-                                <div class="text-xs text-gray-300">Partner</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <!-- Working Hours -->
-        <li class="text-gray-400 text-sm">Mon-Sun: 8am - 6pm</li>
-    </ul>
-</div>
-
-            
-                <div class="mt-4 sm:mt-0">
-                    <ul class="flex space-x-6 text-sm text-gray-400">
-                        <li><a class='hover:text-white transition-colors' href='/privacy'>Privacy Policy</a></li>
-                        <li><a class='hover:text-white transition-colors' href='/terms'>Terms of Service</a></li>
-                        <li><a class='text-gray-400 hover:text-white transition-colors' href='/support'>Support</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-</footer>
-<footer class="text-center text-gray-400 text-sm py-6 bg-gray-900 border-t border-gray-700">
-    &copy; 2025 Swift Loan Wallet. All rights reserved.
-</footer>
 
     <script>
         console.log("Swift Loan Withdrawal Page initialized");
@@ -659,14 +508,6 @@
             successMessage.textContent = message;
             successAlert.classList.remove('hidden');
             successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-   // Restart advanced progress bar animation
-const bar = document.querySelector('#successProgressBar .progress-bar-fill');
-if (bar) {
-    bar.style.width = '0'; // reset width
-    bar.style.animation = 'none'; // reset animation
-    void bar.offsetWidth; // trigger reflow
-    bar.style.animation = 'progressFill 5s linear forwards, stripeMove 1s linear infinite';
-}
             
             // Update timeline
             updateDisbursementTimeline(true);
