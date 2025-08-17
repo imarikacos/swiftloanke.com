@@ -715,11 +715,14 @@
                 hideProcessingOverlay();
 
                 // Handle successful response
-                if (result.success || result.status === 'success' || response.status === 200) {
-                    showSuccess(
-                        `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request. ` +
-                        `Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
-                    );
+if (result.success || result.status === 'success' || response.status === 200) {
+    showSuccess(
+        `STK Push sent successfully! Check your phone (${loanData.phone}) for the ` +
+        `<strong style="color: #e63946;">M-Pesa request from SWIFTWALLET DIGITAL VENTURES</strong>. ` +
+        `Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}. ` +
+        `<br><br><em>Once you've successfully completed payment, your loan is <strong style="color:#2a9d8f;">disbursed instantly</strong>.</em>`
+    );
+}
                     
                     // Update local storage to mark as withdrawn
                     localStorage.setItem('swift_withdrawal_initiated', 'true');
