@@ -349,12 +349,19 @@
         </div>
 
         <!-- Success Alert (Hidden by default) -->
-        <div id="successAlert" class="hidden mb-8 success-state rounded-2xl p-6 slide-in bg-green-100 border border-green-300">
-            <div class="flex items-start space-x-3">
-                <i class="fas fa-check-circle text-green-600 text-xl mt-0.5 flex-shrink-0"></i>
-                <div class="w-full">
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">Withdrawal Successful!</h3>
-                    <p id="successMessage" class="text-green-700 text-sm mb-3"></p>
+<div id="successAlert" 
+     class="hidden mb-8 rounded-2xl p-6 slide-in 
+            bg-green-50 border border-green-200 shadow-md">
+  <div class="flex items-start space-x-3">
+    <i class="fas fa-check-circle text-green-500 text-2xl mt-0.5 flex-shrink-0"></i>
+    <div class="w-full">
+      <h3 class="text-lg font-semibold text-green-700 mb-1">
+        Withdrawal Successful!
+      </h3>
+      <p id="successMessage" class="text-green-600 text-sm"></p>
+    </div>
+  </div>
+</div>
 
                     <!-- Progress Bar -->
                     <div class="w-full bg-gray-200 rounded-full h-5 overflow-hidden relative mb-4">
