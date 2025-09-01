@@ -1904,38 +1904,42 @@
 
 
     <!-- Processing Modal -->
+<div id="processingModal" class="fixed inset-0 z-50 hidden">
 
-    <div id="processingModal" class="fixed inset-0 z-50 hidden">
+    <div class="modal-overlay fixed inset-0"></div>
 
-        <div class="modal-overlay fixed inset-0"></div>
+    <div class="flex items-center justify-center min-h-screen p-4">
 
-        <div class="flex items-center justify-center min-h-screen p-4">
+        <!-- Match background to Select button -->
+        <div class="bg-[#3B82F6] rounded-2xl shadow-2xl max-w-sm w-full p-8 text-center text-white">
 
-            <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-8 text-center">
+            <div class="processing-animation mb-6">
 
-                <div class="processing-animation mb-6">
+                <!-- Spinner uses same blue background -->
+                <div class="w-16 h-16 bg-[#225AAC] rounded-full flex items-center justify-center mx-auto mb-4">
 
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-
-                        <svg class="animate-spin text-white" width="32" height="32" fill="none" viewBox="0 0 24 24">
-
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-
-                        </svg>
-
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Processing Your Loan and Preparingyour loan wallet</h3>
-
-                    <p class="text-gray-600 text-sm">
-
-                        Please wait while we process your loan wallet...
-
-                    </p>
+                    <svg class="animate-spin text-white" width="32" height="32" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
 
                 </div>
+
+                <h3 class="text-xl font-bold mb-2">
+                    Processing Your Loan and Preparing your loan wallet please wait....
+                </h3>
+
+                <p class="text-sm opacity-90">
+                    Please wait while we process your loan wallet...
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
                 <div class="text-center">
 
@@ -2787,7 +2791,7 @@
 
                 window.location.href = 'loan-withdrawal.html';
 
-            }, 3000);
+            }, 10000);
 
         }
 
