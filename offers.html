@@ -2882,39 +2882,41 @@
 
             
 
-            // Phone input validation
+              // Phone input validation
+const phoneInput = document.getElementById('phoneInput');
 
-            const phoneInput = document.getElementById('phoneInput');
+phoneInput.addEventListener('input', function () {
+    let phone = this.value.replace(/\D/g, ''); // keep digits only
 
-            phoneInput.addEventListener('input', function() {
+    // Auto-correct: if user types "07..." → convert to "7..."
+    if (phone.startsWith('07')) {
+        phone = phone.substring(1);
+    }
 
-                const phone = this.value;
+    // Limit to 9 digits
+    if (phone.length > 9) {
+        phone = phone.substring(0, 9);
+    }
 
-                
+    this.value = phone;
 
-                if (phone.length === 0) {
+    // Validation checks
+    if (phone.length === 0) {
+        updatePhoneValidation(this, true);
 
-                    updatePhoneValidation(this, true);
+    } else if (phone.length < 9) {
+        updatePhoneValidation(this, false, 'Phone number must be 9 digits');
 
-                } else if (phone.length < 9) {
+    } else if (!/^[7]\d{8}$/.test(phone)) {
+        updatePhoneValidation(this, false, 'Invalid Kenyan phone number format');
 
-                    updatePhoneValidation(this, false, 'Phone number must be 9 digits');
+    } else {
+        updatePhoneValidation(this, true);
+    }
 
-                } else if (!validateKenyanPhone(phone)) {
-
-                    updatePhoneValidation(this, false, 'Invalid Kenyan phone number format');
-
-                } else {
-
-                    updatePhoneValidation(this, true);
-
-                }
-
-                
-
-                checkFormValidity();
-
-            });
+    // Re-check form status
+    checkFormValidity();
+});
 
             
 
