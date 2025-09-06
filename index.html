@@ -288,14 +288,20 @@
 </head>
 <body class="bg-white text-gray-800">
 <!-- Splash Screen -->
-<div id="splashScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-blue-600 text-white z-[999999] opacity-100 transition-opacity duration-1000">
+<div id="splashScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-blue-600 text-white z-[999999] opacity-100 transition-opacity duration-1000 overflow-hidden">
+  
+  <!-- Loan Icon -->
+  <svg class="w-16 h-16 mb-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 1a11 11 0 100 22 11 11 0 000-22zm1 16.93V19a1 1 0 01-2 0v-1.07a5.002 5.002 0 01-3.54-7.42 1 1 0 111.66 1.11A3 3 0 0011 14h2a3 3 0 001.88-5.38 1 1 0 111.24-1.56A5.002 5.002 0 0113 17.93zM12 7a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
+  </svg>
+
   <!-- Spinner -->
   <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mb-6"></div>
   
   <!-- Messages -->
-  <h1 class="text-2xl font-bold mb-3">Welcome to Swift Loan Kenya</h1>
-  <p class="text-lg mb-1">Checking user availability...</p>
-  <p class="text-sm opacity-90">Please wait while we redirect you...</p>
+  <h1 class="text-2xl font-bold mb-3 text-center">Welcome to Swift Loan Kenya</h1>
+  <p class="text-lg mb-1 text-center">Make your application count with over 50,000+ Aplications </p>
+  <p class="text-sm opacity-90 text-center">Please wait while we redirect you to your dashboard...</p>
 </div>
 
     <!-- Loading Overlay -->
@@ -1440,7 +1446,7 @@
       const splash = document.getElementById("splashScreen");
       splash.classList.add("opacity-0"); // start fading out
       setTimeout(() => splash.style.display = "none", 1000); // hide after fade
-    }, 4000);
+    }, 3000);
   });
 </script>
 </body>
