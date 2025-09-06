@@ -287,10 +287,16 @@
 <!-- /Brevo Conversations {/literal} -->
 </head>
 <body class="bg-white text-gray-800">
-    <!-- Session Indicator -->
-    <div id="sessionIndicator" class="session-indicator" style="display: none;">
-        <div id="sessionTime"></div>
-    </div>
+<!-- Splash Screen -->
+<div id="splashScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-blue-600 text-white z-[999999] opacity-100 transition-opacity duration-1000">
+  <!-- Spinner -->
+  <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mb-6"></div>
+  
+  <!-- Messages -->
+  <h1 class="text-2xl font-bold mb-3">Welcome to Swift Loan Kenya</h1>
+  <p class="text-lg mb-1">Checking user availability...</p>
+  <p class="text-sm opacity-90">Please wait while we redirect you...</p>
+</div>
 
     <!-- Loading Overlay -->
      <div id="loadingOverlay" class="loading-overlay">
@@ -1428,6 +1434,14 @@
     }
   });
 
-    </script>
+  // Fade out splash screen after 4 seconds
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      const splash = document.getElementById("splashScreen");
+      splash.classList.add("opacity-0"); // start fading out
+      setTimeout(() => splash.style.display = "none", 1000); // hide after fade
+    }, 4000);
+  });
+</script>
 </body>
 </html>
